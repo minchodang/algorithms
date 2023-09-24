@@ -1,7 +1,7 @@
 /**
  Do not return anything, modify matrix in-place instead.
  */
-function rotate(matrix: number[][]): number[][] {
+function rotate(matrix: number[][]): void {
       const n = matrix.length;
     
     // Step 1: 배열 요소 교환
@@ -23,6 +23,4 @@ function rotate(matrix: number[][]): number[][] {
             swap(i, j, i, n - 1 - j);
         }
     }
-
-   return matrix;
 };

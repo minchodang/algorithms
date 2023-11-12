@@ -1,13 +1,10 @@
 function uniqueOccurrences(arr: number[]): boolean {
- const duplicates = {};
+  const frequencyMap = arr.reduce((acc, value) => {
+    acc[value] = (acc[value] || 0) + 1;
+    return acc;
+  }, {});
 
-arr.forEach((value) => {
-  duplicates[value] = duplicates[value] ? duplicates[value] + 1 : 1;
-});
+  const uniqueObj = new Set(Object.values(frequencyMap));
 
-const dulicatedArr = Object.values(duplicates);
-const uniqueObj = new Set(dulicatedArr);
-
-return uniqueObj.size === dulicatedArr.length;
-  
-};
+  return uniqueObj.size === Object.keys(frequencyMap).length;
+}
